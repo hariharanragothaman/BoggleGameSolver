@@ -19,7 +19,7 @@ class PrefixTree:
             self.is_word = True
             return
 
-    def find_letter(self, letter):
+    def find_children(self, letter):
         if letter not in self.children:
             return None
         return self.children[letter]
@@ -44,18 +44,16 @@ class BoggleBoard:
         letter = self.board[row][col]
 
         if node is None or path is None or word is None:
-            node = trie.find_letter(letter)
+            node = trie.find_children(letter)
             path = [(row, col)]
             word = letter
         else:
-            node = node.find_letter(letter)
+            node = node.find_children(letter)
             path.append((row, col))
             word += letter
 
-        if node is None:
-            return
-        elif node.is_word:
-            result.add(word)
+        if node is None: return
+        elif node.is_word: result.add(word)
 
         for r in range(row - 1, row + 2):
             for c in range(col - 1, col + 2):
@@ -74,10 +72,13 @@ def load_word_list(trie):
 
 if __name__ == '__main__':
     n = int(input("Enter the size of the boggle board"))
-    grid = [['d', 'z', 'x'],
-            ['e', 'a', 'i'],
-            ['q', 'u', 't']]
-    bg = BoggleBoard(board=grid, board_size=n)
+    """
+    Example boggle_board given:
+    boggle_board = [['d', 'z', 'x'],
+                    ['e', 'a', 'i'],
+                    ['q', 'u', 't']]
+    """
+    bg = BoggleBoard(board_size=n)
     trie = PrefixTree()
     load_word_list(trie)
 
