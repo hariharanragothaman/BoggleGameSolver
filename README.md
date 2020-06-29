@@ -8,7 +8,21 @@ Algorithm Solution Approaches for solving Boggle
 2. Pythonic Approach     
 3. C++ Approach     
 4. Benchmarking Analysis and Performance      
-5. References   
+5. References    
+
+#### Actual Solution to the problem (Using a Trie Data Structure)           
+
+
+#### Pythonic Approach            
+The pythonic approach is explained in detail here:                 
+
+#### C++ Approach    
+The C++ approach is explained in detail here:                    
+
+
+#### Benchmarking Analysis and Performance          
+Benchmarking analysis findings are documented here:             
+
 
 #### Building and Running the C++ application   
 1. Pre-requisites / Development setup               
