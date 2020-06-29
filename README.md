@@ -21,8 +21,7 @@ The C++ approach is explained in detail here: [C++ Walk-Through](https://github.
 
 
 #### Benchmarking Analysis and Performance          
-Benchmarking analysis findings are documented here:             
-
+Benchmarking analysis findings are documented here: [Benchmarking Findings](https://github.com/hariharanragothaman/BoggleGameSolver/blob/master/benchmarking.md)          
 
 #### Building and Running the C++ application   
 1. Pre-requisites / Development setup               
