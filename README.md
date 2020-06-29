@@ -11,7 +11,7 @@ Algorithm Solution Approaches for solving Boggle
 5. References    
 
 #### Actual Solution to the problem (Using a Trie Data Structure)           
-
+In both the implementations we have used the 'Trie' approach                            
 
 #### Pythonic Approach            
 The pythonic approach is explained in detail here:                 
