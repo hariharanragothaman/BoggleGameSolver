@@ -65,22 +65,6 @@ int * children;
 vector<char*> found;
 
 
-// ***********************************************************************************************************
-/*
- *
- * Dict is a tree (trie?).
- *
- *
- * For any prefix, it can tell you which letters
- * follow it and how many suffixes (children) it has.
- *
- *
- * Lets say you have a two letter prefix "AN"
- *
- * If you want to know what letters could follow this prefix
- * you would look at dict['A']->children['N']->children.
- */
-
 class Trie
 {
 	public:
@@ -109,7 +93,6 @@ Trie::Trie()
 Trie* dict;
 
 
-// Add word to Trie
 void insertWord( char word[], const int len ){
     Trie* p = dict;
     int i;
@@ -135,10 +118,6 @@ void insertWord( char word[], const int len ){
     p->word = word; //the last node completes the word, save it here
 }
 
-
-//after searching the board...
-//traverse the trie and push all found words into vector 'found'
-//Recursive!
 void getFoundWords(Trie* p)
 {
     int i;
@@ -245,7 +224,7 @@ void statusBar(int i)
 {
     if( (cols-2) < 100 )
         return;
-    i += 1; //compensate for array index
+    i += 1; 
 
     if( i - progress == onePercentage )
     {
@@ -321,26 +300,22 @@ Results FindWords(const char* board, unsigned width, unsigned height)
 void * buildBoard(const char boggleFile[])
 {
     char * buffer = readFile( boggleFile );
-
-    //calculate the dimensions
-    
     int len = strlen( buffer );
     cols = sqrt( len ) + 2;
+    
     children = new int[NUM_BRANCHES] {-1-cols, -cols, 1-cols, -1, 1, cols-1, cols, cols+1};
+    
     board_size = cols * cols;
     puzzle_size = (cols-2) * (cols-2);
+    
     onePercentage = double(1) / 100 * puzzle_size;
     board = new int[board_size];
 
-    //add border
     int j = 0;
     for(int i = 0; i < board_size; i++)
     {
-        if( (i < cols) ||           //top
-        ((i+1) % cols == 0) ||      //right
-        (i > cols * (cols -1)) ||   //bot
-        (i % cols == 0) )
-	{             //left
+        if( (i < cols) || ((i+1) % cols == 0) || (i > cols * (cols -1)) || (i % cols == 0) )
+	{ 
             board[i] = BORDER;
         }
 	else
@@ -409,10 +384,6 @@ inline Trie* lookup(const int i, Trie* p)
     return p;
 }
 
-//depth first search. recursive!
-//returns the number of NEW words found in children + self
-//Words that have already been found do not count
-
 inline bool descend(int cubeIndex, Trie* p, vector<bool> searched)
 {
     ++checkedNodes;
@@ -426,7 +397,7 @@ inline bool descend(int cubeIndex, Trie* p, vector<bool> searched)
 	    { 
 		    //descend to each neighboring cube
 		    int child = cubeIndex + children[i];
-		    if((board[child] != BORDER) && !searched[child]) //faster to check here
+		    if((board[child] != BORDER) && !searched[child])
 			    descend(child, p, searched);
 	    }
     }
@@ -449,10 +420,9 @@ void traverseBoard()
 
     for(int i = 0; i < board_size; i++)
     { 
-	    //for each cube
 	    if(board[i] != BORDER)
 	    {
-		    descend(i, p, searched); //DFS
+		    descend(i, p, searched);
 		    statusBar(j);
 		    ++j;
 	    }
