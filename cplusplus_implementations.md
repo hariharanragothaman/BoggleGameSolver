@@ -51,6 +51,6 @@ c. We call `FindWords` function to find all words in the
 
 `FindWords` returns output of the type `Results` structure as specified in the problem statement.                   
 So what do `traverseBoard`, `descend`, `lookup` and `getFoundWords` do?                       
-> That brings us to the core implementation of the function.                   
+> That brings us to the core solution implementation of the problem.                   
 
 
