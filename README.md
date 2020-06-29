@@ -135,6 +135,7 @@ The number of words found are: 1
 #### Possible Enhancements to the Submission                       
 1. We can use unit++, google-test frameworks to test negative test case scenarios.                                    
 2. We can possibly host the boggleboard in the cloud, as an available service for users to solve.                    
-3. We can add CI/CD support for the respository and link it with web-hooks to trigger checks.                
+3. We can add CI/CD support for the respository and link it with web-hooks to trigger checks.    
+4. Documentation can be improved through open-source tools like - `doxygen` , `xslt` (or) `Sphinx`
 
 
