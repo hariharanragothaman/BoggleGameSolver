@@ -46,7 +46,11 @@ c. We call `FindWords` function to find all words in the
 
 `FindWords` - call flow:                      
 1. `buildBoard`    :                 
-2. `traverseBoard` :                                        
+2. `traverseBoard` : Calls  `descend`  --> Calls   --> `lookup`                                                  
 3. `getFoundWords` :                       
+
+`FindWords` returns output of the type `Results` structure as specified in the problem statement.                   
+So what do `traverseBoard`, `descend`, `lookup` and `getFoundWords` do?                       
+> That brings us to the core implementation of the function.                   
 
 
