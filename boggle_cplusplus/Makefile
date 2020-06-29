@@ -11,9 +11,15 @@ solve:
 	g++ -o boggle_solver boggle_solver.cpp -std=gnu++0x
 	./boggle_solver
 
+.PHONY: shared
+shared:
+	g++ -fpic -c  boggle_solver.cpp -o boggle_solver.o -std=gnu++0x
+	g++ -shared -o boggle_solver.so boggle_solver.o
+
+
 .PHONY: clean
 clean:
-	rm -rf boggle_solver boggle_generator
+	rm -rf boggle_solver boggle_generator *.o *.so test
 
 .PHONY: distclean
 distclean:
