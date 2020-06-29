@@ -8,12 +8,12 @@ In this implementation we have 2 classes:
 `BoggleBoard` class aims at solving the Boggle Board that has been generated.
 
 Memeber functions in `class PrefixTree`:
-1. Constructor:
+1. `__init__`: Constructor that helps in
 2. `insert`:      
 3. `find_children`:       
 
 Memeber functions in `class BoggleBoard`:                          
-1. Constructor:  
+1. `__init__`:  Constructor that helps in 
 2. `solve_boggle`:  
 3. `search_tree`:    
 
