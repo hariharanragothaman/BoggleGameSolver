@@ -7,8 +7,10 @@ Algorithm Solution Approaches for solving Boggle
 1. What's the actual solution to the problem?     
 2. Pythonic Approach     
 3. C++ Approach     
-4. Benchmarking Analysis and Performance      
-5. References    
+4. Benchmarking Analysis and Performance   
+5. Some Automation Tests / Approaches
+6. References
+7. Possible Enhancements
 
 #### Actual Solution to the problem (Using a Trie Data Structure)           
 In both the implementations we have used the 'Trie' approach                            
