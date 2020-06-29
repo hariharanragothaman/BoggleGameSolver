@@ -53,10 +53,23 @@ To compile that with the shared library
 
 ```
 $ make test
-
+$ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/scratch/BoggleGameSolver/boggle_cplusplus/boggle_solver.so
+$ sudo cp /home/scratch/BoggleGameSolver/boggle_cplusplus/boggle_solver.so /usr/lib
+$ sudo cp /home/scratch/BoggleGameSolver/boggle_cplusplus/boggle_solver.so /usr/local/lib
+```
 
 5. Using the Dummy Test Harness   
-
+```
+$ ./test
+.................................................................................................... 100%
+The number of words are: 1,518
+The Score is: 3,939
+178,590 words parsed in dictionary.txt
+Word length limit of 20 characters
+100 cubes on the board
+Time taken (Nodes checked per ms) :726
+Results saved to results.txt
+```
 
 #### Running the python application          
 
