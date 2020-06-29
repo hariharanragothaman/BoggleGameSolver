@@ -22,7 +22,8 @@ Algorithm Solution Approaches for solving Boggle
 7. Possible Enhancements
 
 #### Actual Solution to the problem (Using a Trie Data Structure)           
-In both the implementations we have used the 'Trie' approach. Tries aere generally the efficient way to search for words pruning search space. The time complexity here is: O(n) where n is the length of the string to be found.
+In both the implementations we have used the 'Trie' approach. Tries are generally the efficient way to search for words pruning search space.               
+The time complexity here is: O(n) where n is the length of the string to be found.               
 
 Trie is essentially a tree where each node can have atmost 26 children (values from the alphabet).    
 It will also contain a boolean field (or) binary field - to indicate if it's the end letter of a word, or if it's a prefix.
@@ -39,7 +40,6 @@ The pythonic approach is explained in detail here: [Python Walk-Through](https:/
 
 #### C++ Approach    
 The C++ approach is explained in detail here: [C++ Walk-Through](https://github.com/hariharanragothaman/BoggleGameSolver/blob/master/cplusplus_implementations.md)                  
-
 
 #### Benchmarking Analysis and Performance          
 Benchmarking analysis findings are documented here: [Benchmarking Findings](https://github.com/hariharanragothaman/BoggleGameSolver/blob/master/benchmarking.md)          
