@@ -1,6 +1,15 @@
 # BoggleGameSolver    
 Algorithm Solution Approaches for solving Boggle       
 
+### General Prologue                              
+---------------------                                                  
+1. All general requriements by the problem statement, TODO functions have been satisfied.                                                                  
+2. Time Complexity: O(n) where n is the length of the word to be found.                                                                                         
+3. Technologies used: C++, Python                                          
+4. Basic requriements to test C++ solution: Ubuntu 16.04 LTS, g++/gcc/gnu++ compilers have to be installed.                                                     
+5. Basic requirements to test python solution: Ubuntu 16.04 LTS, python3.8 installed.                                                 
+6. BONUS1: Attempted to benchmark and compare C++ vs Python implementation, and time it takes as size of the board increases.                          
+7. BONUS2: Created shared libraries and test_harnesses to see if the implemented code can be plugged in as an API                                            
 
 ### Table of Contents
 ----------------------
@@ -113,10 +122,6 @@ The number of words found are: 1
 ```
 
 #### Some Automation Test - To Double-check Results     
-
-
-
-
 
 
 #### References     
