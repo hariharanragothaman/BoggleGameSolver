@@ -69,6 +69,17 @@ def load_word_list(trie):
                 word = word.rstrip().lower()
                 trie.insert(word)
 
+def run_benchmark():
+    for i in range(3, 100):
+        bg = BoggleBoard(board_size=i)
+        trie = PrefixTree()
+        load_word_list(trie)
+        result = set()
+        start = time.time()
+        bg.solve_boggle(trie, result)
+        end = time.time()
+        time_taken = end - start
+        print(end - start)
 
 if __name__ == '__main__':
     n = int(input("Enter the size of the boggle board"))
