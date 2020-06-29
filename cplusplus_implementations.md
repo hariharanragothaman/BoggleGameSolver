@@ -29,5 +29,6 @@ struct Results
 };
 ```
 
-2. In `boggle_solver.cpp`:  **Note**: This contains all the `TODO` functions required to be implemented:           
+2. In `boggle_solver.cpp`:  **Note**: This contains all the `TODO` functions required to be implemented:         
+Here we have `class Trie` and several memeber functions of the class and helper functions.                 
 
