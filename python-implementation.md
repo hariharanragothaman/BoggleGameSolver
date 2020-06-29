@@ -8,14 +8,14 @@ In this implementation we have 2 classes:
 `BoggleBoard` class aims at solving the Boggle Board that has been generated.
 
 Memeber functions in `class PrefixTree`:
-0. Constructor:
-1. `insert`:      
-2. `find_children`:       
+1. Constructor:
+2. `insert`:      
+3. `find_children`:       
 
-Memeber functions in `class BoggleBoard`:            
-0. Constructor:  
-1. `solve_boggle`:  
-2. `search_tree`:    
+Memeber functions in `class BoggleBoard`:                          
+1. Constructor:  
+2. `solve_boggle`:  
+3. `search_tree`:    
 
 We have other helper functions such as:              
 1. `load_word_list`: This loads the entire word list / dictionary into memory and we insert each word into Trie.                 
