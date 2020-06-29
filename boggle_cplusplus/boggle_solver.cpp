@@ -16,10 +16,10 @@ const int WSIZE = 20;
 const int BORDER = ALPHA_SIZE;
 
 
-/*
+/********************************************************************************
  * Structure format for returning the result after solving the game of boggle
- *
- */
+ * This format is given as part of the problem statement
+ *******************************************************************************/
 
 struct Results
 {
@@ -31,12 +31,9 @@ struct Results
 };
 
 
-/*
- *
+/**************************
  * Function Declarations
- *
- *
- */
+ *************************/
 
 void LoadDictionary(const char* path);
 void FreeDictionary();
@@ -65,14 +62,23 @@ int * children;
 vector<char*> found;
 
 
+/*********************************************************************************
+ * @brief: Trie class implement the Trie Data Structure
+ * :member: count 	- number of suffixes that share the letter as root
+ * :member: word  	- if a node completes a word, it gets stored here
+ * :memeber:found 	- boolean flag to check if the the node completes a word and if it has been found.
+ * :function: Trie() 	- constructor assigns all children to NULL by default
+ *                        Each letter can have a maximum of 26 links
+ *********************************************************************************/
+
 class Trie
 {
 	public:
 		Trie* children[ALPHA_SIZE];
 		Trie* parent;
-		int count; //number of suffixes that share this as a root
-		char* word; //if this node completes a word, store it here
-		bool found; //has this word been found?
+		int count;
+		char* word;
+		bool found; 
 		
 		Trie();
 };
@@ -90,7 +96,18 @@ Trie::Trie()
 	}
 }
 
-Trie* dict;
+// Pointer to  Trie Class is created
+Trie* dict; 
+
+
+/********************************************************************************
+ * @brief: insertWord Function - loads the words in the dictionary into Trie
+ *         This function essentially loads the dictionary into the Trie & 
+ *         is called by LoadDictionary() function
+ * :param: word[] - word to be inserted
+ * :param: len	  - length of the word		
+ *
+ *********************************************************************************/
 
 
 void insertWord( char word[], const int len ){
@@ -118,6 +135,12 @@ void insertWord( char word[], const int len ){
     p->word = word; //the last node completes the word, save it here
 }
 
+/************************************************************************************************
+ * @brief: getFoundWords function parses the Trie to add found words into resultant vector
+ * :param: p - pointer to object of class Trie
+ ************************************************************************************************
+ */
+
 void getFoundWords(Trie* p)
 {
     int i;
@@ -137,11 +160,14 @@ void getFoundWords(Trie* p)
 
 
 //*****************************************************************************************************************
-
-/*  Function to read file completely into buffer
- *  This is used to read both the dictionary file [ complete word list]
- *  This is also used to I/P file containing the list of letters
- */
+/******************************************************************************************************************
+ * @brief: Function to read file completely into buffer
+ *  	   This is used to read both the dictionary file [ complete word list]
+ *         This is also used to I/P file containing the list of letters
+ *
+ * :param fname: The file to be read into memory
+ *
+ ******************************************************************************************************************/
 
 char* readFile( const char *fname)
 {
@@ -183,6 +209,13 @@ char* readFile( const char *fname)
     fclose (pFile);
     return buffer;
 }
+
+/**********************************************************************************************
+ *
+ * @brief: saveResults: Dumps the necessary results into a file
+ * :param fname: File name where results have to dumped into.
+ *
+ **********************************************************************************************/
 
 void saveResults( char fname[] ){
     FILE * file;
@@ -239,6 +272,18 @@ void statusBar(int i)
     }
 }
 
+/*****************************************************************************************************************
+ *
+ * @brief: Converts an input vector to character array
+ *	   Creates an objects of the structure Results.
+ *	   Stores the value of 'Count' and 'Score' in the structure
+ *	   This function is called by FindWords() function
+ *
+ * :param: wordsFound: vector of char* of words that have been found
+ * :return: returnType is of Results struct
+ *
+ *****************************************************************************************************************/
+
 Results vectorToCharArray(vector<char *> wordsFound)
 {
 	Results res;
@@ -281,6 +326,22 @@ Results vectorToCharArray(vector<char *> wordsFound)
 
 }
 
+/****************************************************************************************************************
+ * 
+ * @brief: FindWords() function - the direct function that is called to find all words in boggleBoard
+ *         Internally calls the following functions
+ *         1. buildBoard()
+ *         2. traverseBoard()
+ *         3. getFoundWord()
+ *         4. vectorToCharArray() 
+ *
+ *         This is the API that will be tied to the test harness
+ *
+ * :return: object of type Results
+ *
+ ****************************************************************************************************************/
+
+
 Results FindWords(const char* board, unsigned width, unsigned height)
 {
 	Results output;
@@ -297,6 +358,11 @@ Results FindWords(const char* board, unsigned width, unsigned height)
 	return output;
 
 }
+
+/*
+ * @brief: Reads the boggle.txtfile using the readFile function() and creates the boggleboard
+ *	   Also neatly adds a border around the matrix generated for pretty-printing
+ */
 
 void * buildBoard(const char boggleFile[])
 {
@@ -328,14 +394,14 @@ void * buildBoard(const char boggleFile[])
 }
 
 
-//****************************************************************************************************************
-
-/*
- *
- *  Load dictionary into trie
- *  I/P Dictionary is a file with one word per line
- *
- */
+//********************************************************************************************
+/*********************************************************************************************
+ *  @brief: Load dictionary into trie
+ *  	    I/P Dictionary is a file with one word per line
+ *  
+ *  :param dictFile: I/P dictionary file containng words
+ *  		     File that will be read, and where words will be inserted into Trie
+ *********************************************************************************************/
 
 void LoadDictionary(const char* dictFile)
 {
@@ -359,6 +425,11 @@ void LoadDictionary(const char* dictFile)
     }
 }
 
+/* 
+ * @brief: Helper Function to free the created pointer to Trie Class
+ *
+ */
+
 void FreeDictionary()
 {
    delete dict;
@@ -366,6 +437,10 @@ void FreeDictionary()
 
 //************************************************************************************************************
 // CORE -LOGIC BEGINS HERE 
+
+/*
+ * @brief: lookup()
+ */
 
 inline Trie* lookup(const int i, Trie* p)
 {
@@ -385,6 +460,10 @@ inline Trie* lookup(const int i, Trie* p)
     return p;
 }
 
+/*
+ * @brief DFS() 
+ */
+
 inline bool DFS(int cubeIndex, Trie* p, vector<bool> searched)
 {
     ++checkedNodes;
@@ -393,7 +472,7 @@ inline bool DFS(int cubeIndex, Trie* p, vector<bool> searched)
     if( p && p->count )
     {
 	    //is this a valid prefix? Are there any remaining words that use it?
-	    searched[cubeIndex] = true; //mark this cube as used
+	    searched[cubeIndex] = true; //mark this cube as 'visited'
 	    for(int i = 0; i < NUM_BRANCHES; i++)
 	    { 
 		    //DFS to each neighboring cube
@@ -406,8 +485,13 @@ inline bool DFS(int cubeIndex, Trie* p, vector<bool> searched)
 
 
 
-//for each cube on the board, perform a depth first search using DFS()
-void traverseBoard()
+/*************************************************************************************************
+ *
+ * @brief: TraverseBoard() - For each cube on the board, perform a depth first search using DFS()
+ *
+ **************************************************************************************************/
+ 
+ void traverseBoard()
 {
     Trie* p = dict;
     vector<bool> searched; //cubes should be used only once per word
@@ -432,12 +516,12 @@ void traverseBoard()
 
 
 // ****************************************************************************************************************
-
-/* 
- * main() function
- * DRIVER code to test our implementations
- * This is used to test the logic of the implemented API
- */
+/******************************************************************************************************************
+ * @brief:  main() function
+ * 	    DRIVER code to test our implementations
+ * 	    This is used to test the logic of the implemented API
+ *
+ *****************************************************************************************************************/
 
 
 
