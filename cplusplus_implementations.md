@@ -1,6 +1,7 @@
 ### Overview of the general implementation
 
-From what I understand from the question - we have to implement API's with defined function signatures. And, these API's will be run against a test harness.             
+From what I understand from the question - we have to implement API's with defined function signatures.                 
+These API's will be run against a test harness.               
 
 #### Solution Steps Overview:                
 1. Implement the solution.            
