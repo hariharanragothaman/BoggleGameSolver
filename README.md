@@ -10,7 +10,7 @@ Algorithm Solution Approaches for solving Boggle
 4. Benchmarking Analysis and Performance      
 5. References   
 
-### Building and Running the C++ application   
+#### Building and Running the C++ application   
 1. Pre-requisites / Development setup   
 2. Using the Boggle Generator   
 3. Using the Boggle Solver    
@@ -18,3 +18,5 @@ Algorithm Solution Approaches for solving Boggle
 5. Using the Dummy Test Harness   
 
 
+#### Running the python application          
+1. Steps to run python program      
