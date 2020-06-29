@@ -4,8 +4,6 @@
 #include <time.h>
 
 using namespace std;
-
-//based on http://boardgamegeek.com/thread/300883/letter-distribution
 const int NUM_GROUPS = 11;
 const string LETTER_GROUPS[NUM_GROUPS] = {"e","t","ar","ino","s","d","chl","fmpu","gy","w","bjkqvxz"};
 const int LETTER_GROUP_FREQ[NUM_GROUPS] = {19,13,12,11,9,6,5,4,3,2,1};
