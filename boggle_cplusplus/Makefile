@@ -18,7 +18,7 @@ shared:
 
 .PHONY: test
 test:
-	g++ -ggdb -o test test.h test.cpp boggle_solver.so -std=gnu++0x
+	g++ -ggdb -o test test_harness.h test_harness.cpp boggle_solver.so -std=gnu++0x
 
 
 .PHONY: clean
