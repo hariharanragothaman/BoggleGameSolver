@@ -135,6 +135,7 @@ void getFoundWords(Trie* p)
 }
 
 
+
 //*****************************************************************************************************************
 
 /*  Function to read file completely into buffer

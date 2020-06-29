@@ -35,9 +35,9 @@ Here we have `class Trie` and several helper functions to implement Trie.
 
 `class Trie` implements the `Trie` datastructure                            
     1. We create a pointer to object of this class.                    
-    2. `insertWord` adds words into the Trie.                              
-    3. `lookup`                             
-
+    2. `insertWord` adds words into the Trie.      
+    3. `bool found` - Flag to check if the word has been found, to mark it in Trie
+    4. `lookup` - To keep track of which word has been found and also duplicates
 
 Order of Function call:                    
 
@@ -45,12 +45,14 @@ Order of Function call:
 c. We call `FindWords` function to find all words in the              
 
 `FindWords` - call flow:                      
-1. `buildBoard`    :                 
-2. `traverseBoard` : Calls  `descend`  --> Calls   --> `lookup`                                                  
-3. `getFoundWords` :                       
+1. `buildBoard`    : Builds the board from the generated file, that contains random characters
+2. `traverseBoard` : Calls  `DFS`  --> Calls   --> `lookup`                                          
+3. `getFoundWords` : Parses the Trie, and checks if the 'found' flag is True, which marrks that it's a word - and if it's pushes into the `<vector>` collecting the different words 
 
 `FindWords` returns output of the type `Results` structure as specified in the problem statement.                   
 So what do `traverseBoard`, `descend`, `lookup` and `getFoundWords` do?                       
-> That brings us to the core solution implementation of the problem.                   
+> That brings us to the core solution implementation of the problem which does a Depth-First-Search           
+> This is very similar to how we have solved it in python, the implementation style is different.   
 
-
+`traverseBoard` - basically `DFS` for every letter in the generated boggle board.
+`DFS` - returns the number of words found when parsing the Trie, by performing depth-first-search
