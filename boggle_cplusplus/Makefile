@@ -14,7 +14,11 @@ solve:
 .PHONY: shared
 shared:
 	g++ -fpic -c  boggle_solver.cpp -o boggle_solver.o -std=gnu++0x
-	g++ -shared -o boggle_solver.so boggle_solver.o
+	g++ -ggdb -shared -o boggle_solver.so boggle_solver.o
+
+.PHONY: test
+test:
+	g++ -ggdb -o test test.h test.cpp boggle_solver.so -std=gnu++0x
 
 
 .PHONY: clean

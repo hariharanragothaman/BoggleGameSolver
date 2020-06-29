@@ -33,7 +33,7 @@ struct Results
 
 /*
  *
- * Function Delcarations
+ * Function Declarations
  *
  *
  */
@@ -200,9 +200,7 @@ char* readFile( const char *fname)
 
     /* the whole file is now loaded in the memory buffer. */
 
-    // terminate
     fclose (pFile);
-    // free (buffer);
     return buffer;
 }
 
@@ -210,7 +208,6 @@ void saveResults( char fname[] ){
     FILE * file;
     file = fopen (fname,"w");
 
-    //pretty print the board
     char c;
     for(int i = 0; i < board_size; i++)
     {
@@ -249,11 +246,13 @@ void statusBar(int i)
     if( (cols-2) < 100 )
         return;
     i += 1; //compensate for array index
+
     if( i - progress == onePercentage )
     {
 	    cout << "|" << flush;
 	    progress += onePercentage;
     }
+
     if( i == puzzle_size ) 
     {
 	    cout << " done!" << endl;
@@ -386,7 +385,7 @@ void LoadDictionary(const char* dictFile)
 
 void FreeDictionary()
 {
-   free(dict);
+   delete dict;
 }
 
 //************************************************************************************************************
