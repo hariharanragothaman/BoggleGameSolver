@@ -1,8 +1,8 @@
 #### Running through the python code    
 
 In this implementation we have 2 classes:      
-1. PrefixTree        
-2. BoggleBoard          
+1. `PrefixTree`        
+2. `BoggleBoard`         
 
 `PrefixTree` class essentially implements the Trie data structure.                     
 `BoggleBoard` class aims at solving the Boggle Board that has been generated.
