@@ -26,8 +26,6 @@ void generate(int board_size, string fname)
     }
 
     srand( time(NULL) );
-
-    //setup random board
     for(int i = 0; i < board_size; i++)
     {
         letter = tileBag[rand() % tileBag.length()];
