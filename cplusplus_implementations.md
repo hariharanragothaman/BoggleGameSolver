@@ -12,7 +12,22 @@ These API's will be run against a test harness.
 
 #### Code Run-Through:                       
 
-1. `Makefile`             :   Orchestrates the compile, build, clean process                                  
-2. `BoggleSolver.cpp`     :   Houses the logic for the BoggleSolver                               
-3. `BoggleGenerator.cpp`  :   Houses the logic for generating a random board and writing it to a file.                 
-4. Creating a shared library and writing our own test-harness               
+1. Given I/P and function signatures            
+2. `Makefile`             :   Orchestrates the compile, build, clean process                                  
+3. `boggle_solver.cpp`     :   Houses the logic for the BoggleSolver                               
+4. `boggle_generator.cpp`  :   Houses the logic for generating a random board and writing it to a file.                 
+5. Creating a shared library and writing our own test-harness               
+
+1. We have been given specific format to return the results found after solving 
+```
+struct Results
+{
+	const char* const* Words;
+	unsigned Count;
+	unsigned Score;
+	void* UserData;
+};
+```
+
+2. In `boggle_solver.cpp`:  **Note**: This contains all the `TODO` functions required to be implemented:           
+
