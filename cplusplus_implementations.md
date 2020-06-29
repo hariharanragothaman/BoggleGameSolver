@@ -30,5 +30,21 @@ struct Results
 ```
 
 2. In `boggle_solver.cpp`:  **Note**: This contains all the `TODO` functions required to be implemented:         
-Here we have `class Trie` and several memeber functions of the class and helper functions.                 
+Let's take a look at the code-flow here:                  
+Here we have `class Trie` and several helper functions to implement Trie.                                
+
+a. `class Trie` implements the `Trie` datastructure         
+    1. We create a pointer to object of this class. 
+    2. `insertWord` adds words into the Trie.
+    3. `lookup`
+
+
+b. `LoadDictionary` loads the entire word list into memory with the help of `readFile` function.
+c. We call `FindWords` function to find all words in the 
+
+`FindWords` - call flow:             
+1. `buildBoard`    :      
+2. `traverseBoard` :                              
+3. `getFoundWords` :          
+
 
