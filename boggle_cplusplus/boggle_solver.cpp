@@ -384,7 +384,7 @@ inline Trie* lookup(const int i, Trie* p)
     return p;
 }
 
-inline bool descend(int cubeIndex, Trie* p, vector<bool> searched)
+inline bool DFS(int cubeIndex, Trie* p, vector<bool> searched)
 {
     ++checkedNodes;
     p = lookup( board[cubeIndex], p);
@@ -395,17 +395,17 @@ inline bool descend(int cubeIndex, Trie* p, vector<bool> searched)
 	    searched[cubeIndex] = true; //mark this cube as used
 	    for(int i = 0; i < NUM_BRANCHES; i++)
 	    { 
-		    //descend to each neighboring cube
+		    //DFS to each neighboring cube
 		    int child = cubeIndex + children[i];
 		    if((board[child] != BORDER) && !searched[child])
-			    descend(child, p, searched);
+			    DFS(child, p, searched);
 	    }
     }
 }
 
 
 
-//for each cube on the board, perform a depth first search using descend()
+//for each cube on the board, perform a depth first search using DFS()
 void traverseBoard()
 {
     Trie* p = dict;
@@ -422,7 +422,7 @@ void traverseBoard()
     { 
 	    if(board[i] != BORDER)
 	    {
-		    descend(i, p, searched);
+		    DFS(i, p, searched);
 		    statusBar(j);
 		    ++j;
 	    }
