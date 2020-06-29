@@ -63,7 +63,7 @@ class BoggleBoard:
 
 
 def load_word_list(trie):
-    with open('words.txt', encoding='latin-1') as f:
+    with open('dictionary.txt', encoding='latin-1') as f:
         for word in f.readlines():
             if len(word) > 3:
                 word = word.rstrip().lower()
