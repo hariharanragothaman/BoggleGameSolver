@@ -513,5 +513,6 @@ int main(int argc, const char** argv)
     if( end )
         speed = floor((checkedNodes/end)/1000);
     saveResults( resultsFile);
+    cout << "Time taken (Nodes checked per ms) :" << speed << endl;
     cout << "Results saved to " << resultsFile << endl;
 }
