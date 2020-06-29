@@ -111,7 +111,8 @@ The number of words found are: 1
 
 #### References     
 1.http://boardgamegeek.com/thread/300883/letter-distribution      
-2. Several resources in stackover-flow and Google  
+2. Several resources in stackover-flow and Google    
+3. https://en.wikipedia.org/wiki/Boggle      
 
 
 
