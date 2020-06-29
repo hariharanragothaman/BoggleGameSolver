@@ -14,10 +14,10 @@ Algorithm Solution Approaches for solving Boggle
 In both the implementations we have used the 'Trie' approach                            
 
 #### Pythonic Approach            
-The pythonic approach is explained in detail here:                 
+The pythonic approach is explained in detail here: [Python Walk-Through](https://github.com/hariharanragothaman/BoggleGameSolver/blob/master/python-implementation.md)                 
 
 #### C++ Approach    
-The C++ approach is explained in detail here:                    
+The C++ approach is explained in detail here: [C++ Walk-Through](https://github.com/hariharanragothaman/BoggleGameSolver/blob/master/cplusplus_implementations.md)                  
 
 
 #### Benchmarking Analysis and Performance          
