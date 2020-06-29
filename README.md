@@ -19,4 +19,17 @@ Algorithm Solution Approaches for solving Boggle
 
 
 #### Running the python application          
-1. Steps to run python program      
+
+Steps to run python program      
+```
+$  python3.8 boggle_solver_trie_implementation.py
+```
+Sample O/P:
+
+```
+Enter the size of the boggle board 4
+The generated board is: [['z', 'd', 'm', 'j'], ['z', 'h', 'h', 'n'], ['c', 'k', 'm', 'b'], ['r', 'i', 'g', 'n']]
+The words are: ['khz']
+The number of words found are: 1
+```
+
